@@ -22,3 +22,10 @@ export async function PUT(request:Request, {params}:{params: Params}){
     await TodoModel.findByIdAndUpdate(id, {title, description});
     return NextResponse.json({message: "Updated succesfully"}, {status: 200});
 }
+
+export async function GET(request:Request, {params}:{params: Params}){
+    await dbConnect();
+    const {id} = params;
+    const todo = await TodoModel.findOne({_id: id});
+    return NextResponse.json({todo}, {status:200});
+}

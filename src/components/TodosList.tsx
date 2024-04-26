@@ -4,7 +4,7 @@ import { HiPencilAlt } from "react-icons/hi";
 
 const getTodos = async () => {
   try {
-    const res = await fetch("http://localhost/3000/api/todos", {
+    const res = await fetch("http://localhost:3000/api/todos", {
       cache: "no-store",
     });
 
@@ -33,7 +33,7 @@ export default async function TodosList() {
           </div>
 
           <div className="flex gap-2">
-            <RemoveBtn />
+            <RemoveBtn id={t._id} />
             <Link href={`/editTodo/${t._id}`}>
               <HiPencilAlt size={24} />
             </Link>
