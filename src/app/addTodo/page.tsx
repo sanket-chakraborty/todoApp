@@ -7,7 +7,7 @@ import { FormEvent, useState } from "react";
 export default function addTodo() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const { push } = useRouter();
+  const { push, refresh } = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -28,6 +28,7 @@ export default function addTodo() {
 
       if (res.ok) {
         push("http://localhost:3000/");
+        refresh();
       } else {
         throw new Error("Failed to create the ToDo");
       }
