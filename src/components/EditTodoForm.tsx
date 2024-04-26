@@ -18,7 +18,7 @@ export default function EditTodoForm({
 }: EditTodoFormProps) {
   const [newTitle, setNewTitle] = useState(title);
   const [newDescription, setNewDescription] = useState(description);
-  const { push } = useRouter();
+  const { push, refresh } = useRouter();
 
   const handleClick = async (e: FormEvent) => {
     e.preventDefault();
@@ -38,6 +38,7 @@ export default function EditTodoForm({
 
       if (res.ok) {
         push("http://localhost:3000/");
+        refresh();
       } else {
         throw new Error("Failed to create the ToDo");
       }
