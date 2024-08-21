@@ -55,7 +55,10 @@ export default function addTodo() {
         placeholder="ToDo Description"
       />
 
-      <button className="bg-green-600 font-bold text-white py-3 px-6 w-fit">
+      <button
+        type="submit"
+        className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
+      >
         Add ToDo
       </button>
     </form>
